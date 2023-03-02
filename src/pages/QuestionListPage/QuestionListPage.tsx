@@ -1,32 +1,26 @@
 import React, { useState } from 'react'
-import { IChoice } from '../../components/QuestionForm/QuestionForm'
+import { Link } from 'react-router-dom'
 
 interface IQuestion {
-  question: string
-  choices: IChoice[]
+  id: number
+  text: string
 }
 
-const QuestionList: React.FC = () => {
-  const [questions, setQuestions] = useState<IQuestion[]>([])
+const initialQuestionsState: IQuestion[] = [
+  { id: 1, text: 'What is your favorite color?' },
+  { id: 2, text: 'What is your favorite animal?' },
+]
 
-  const handleQuestionSubmit = (question: string, choices: IChoice[]) => {
-    setQuestions([...questions, { question, choices }])
-  }
+const QuestionListPage: React.FC = () => {
+  const [questions, setQuestions] = useState<IQuestion[]>(initialQuestionsState)
 
   return (
     <div>
-      <h2>Questions:</h2>
+      <h1>Questions</h1>
       <ul>
-        {questions.map((question, index) => (
-          <li key={index}>
-            <h3>{question.question}</h3>
-            <ul>
-              {question.choices.map((choice, index) => (
-                <li key={index}>
-                  <strong>{choice.label}:</strong> {choice.value}
-                </li>
-              ))}
-            </ul>
+        {questions.map((question) => (
+          <li key={question.id}>
+            <Link to={`/questions/${question.id}`}>{question.text}</Link>
           </li>
         ))}
       </ul>
@@ -34,4 +28,4 @@ const QuestionList: React.FC = () => {
   )
 }
 
-export default QuestionList
+export default QuestionListPage

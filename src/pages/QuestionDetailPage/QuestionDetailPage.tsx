@@ -1,42 +1,43 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useParams } from 'react-router-dom'
-import { IChoice } from '../../components/QuestionForm/QuestionForm'
 
 interface IQuestion {
   id: number
-  question: string
-  choices: IChoice[]
+  text: string
+  choices: string[]
 }
 
-interface IQuestionDetailProps {
-  question: IQuestion
-}
-
-const QuestionDetail: React.FC<IQuestionDetailProps> = ({ question }) => {
-  return (
-    <div>
-      <h2>Question {question.id}</h2>
-      <h3>{question.question}</h3>
-      <ul>
-        {question.choices.map((choice, index) => (
-          <li key={index}>
-            <strong>{choice.label}:</strong> {choice.value}
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
+const initialQuestionState: IQuestion = {
+  id: 1,
+  text: 'What is your favorite color?',
+  choices: ['Red', 'Green', 'Blue', 'Yellow'],
 }
 
 const QuestionDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const [question, setQuestion] = useState<any>()
+  const [question, setQuestion] = React.useState<IQuestion>(initialQuestionState)
 
-  if (!question) {
-    return <div>Question not found</div>
-  }
+  React.useEffect(() => {
+    // TODO: Add code to fetch question with specified ID from server/database
+    // For now, just use the initialQuestionState
+    setQuestion(initialQuestionState)
+  }, [id])
 
-  return <QuestionDetail question={question} />
+  return (
+    <div>
+      <h1>{question.text}</h1>
+      <ul>
+        {question.choices.map((choice, index) => {
+          return (
+            <li key={index}>
+              <input type="radio" name="choices" value={choice} />
+              <span>{choice}</span>
+            </li>
+          )
+        })}
+      </ul>
+    </div >
+  )
 }
 
 export default QuestionDetailPage

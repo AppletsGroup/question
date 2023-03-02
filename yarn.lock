@@ -409,6 +409,13 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+applet.js@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/applet.js/-/applet.js-0.0.3.tgz#9b218a3c339d3f030142e66645cb68948d68be52"
+  integrity sha512-dftvpBMNyZz8mIeVrS7aVwZQgItN7p8bbQBngQJW9kzt3KOt7k0GfnADxBLhu0PE5WB8YjWPpz9BmLZVWDEWkA==
+  dependencies:
+    react "^18.2.0"
+
 browserslist@^4.21.3:
   version "4.21.5"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.21.5.tgz#75c5dae60063ee641f977e00edd3cfb2fb7af6a7"
