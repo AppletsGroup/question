@@ -1,4 +1,7 @@
+import { createPost } from 'applet-apis'
+import { Post } from 'applet-types'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 interface IQuestion {
   text: string
@@ -11,6 +14,7 @@ const initialQuestionState: IQuestion = {
 }
 
 const QuestionFormPage: React.FC = () => {
+  const navigate = useNavigate()
   const [question, setQuestion] = useState<IQuestion>(initialQuestionState)
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,11 +38,36 @@ const QuestionFormPage: React.FC = () => {
     setQuestion({ ...question, choices: newChoices })
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     console.log('Submit question:', question)
     // TODO: Add code to submit question to server/database
+    const blocks2Create = [
+      {
+        content: { text: question.text },
+        contentType: 'Text'
+      }
+    ]
+
+    question.choices.forEach(choiceItem => {
+      blocks2Create.push(
+        {
+          content: { text: choiceItem },
+          contentType: 'Text'
+        }
+      )
+    })
+
+    const post2Create: Post = {
+      contentType: 'MULTIPLE_CHOICE',
+      blocks: blocks2Create,
+      isDraft: false
+    }
+    await createPost(post2Create)
+
     setQuestion(initialQuestionState)
+
+    navigate(-1)
   }
 
   return (

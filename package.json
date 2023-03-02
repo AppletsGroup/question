@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "applet-apis": "^0.0.1",
+    "applet-types": "^0.0.2",
     "applet.js": "^0.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

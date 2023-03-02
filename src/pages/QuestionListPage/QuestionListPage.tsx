@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import { queryMyPosts } from 'applet-apis'
+import { Post } from 'applet-types'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 interface IQuestion {
@@ -6,17 +8,35 @@ interface IQuestion {
   text: string
 }
 
-const initialQuestionsState: IQuestion[] = [
-  { id: 1, text: 'What is your favorite color?' },
-  { id: 2, text: 'What is your favorite animal?' },
-]
-
 const QuestionListPage: React.FC = () => {
-  const [questions, setQuestions] = useState<IQuestion[]>(initialQuestionsState)
+  const [questions, setQuestions] = useState<IQuestion[]>([])
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      const queryParams: any = {
+        page: 1,
+        contentTypes: ['MULTIPLE_CHOICE']
+      }
+      const response = await queryMyPosts(queryParams)
+      const formatQuestions = response.data.map((questionItem: Post) => {
+        const questionBlocks = questionItem.postBlocks
+        const questionPostBlock = questionBlocks ? questionBlocks[0] : {}
+        const questionText = questionPostBlock.block.content.text
+
+        return {
+          id: questionItem.id,
+          text: questionText
+        }
+      })
+      setQuestions(formatQuestions)
+    }
+    loadPosts()
+  }, [])
 
   return (
     <div>
       <h1>Questions</h1>
+      <Link to="/questions/new">Add Question</Link>
       <ul>
         {questions.map((question) => (
           <li key={question.id}>

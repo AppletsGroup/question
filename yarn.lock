@@ -409,6 +409,16 @@ ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+applet-apis@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/applet-apis/-/applet-apis-0.0.1.tgz#e4465a50e7a040d78c7be71b2e808e3ffe4e1d42"
+  integrity sha512-ai64a/OZ9Nur0VsG2Kd2vBSwMXP7ZEMOrVFqfCQ1tqcr/66Y7XBeW6kQjb4c4I/1QTGVevHJPm2yGwaabubPyg==
+
+applet-types@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/applet-types/-/applet-types-0.0.2.tgz#0667b95792152cfec23123c14d358fe0c2e3438b"
+  integrity sha512-7tMNEVuSmeavXYdTqQXVyNBM562IeSeJ7Z4FLdd5XqLHtA2wWpJn53wZUpjBE24JQ8g0w71p2kTHQiqyRmjYIA==
+
 applet.js@^0.0.3:
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/applet.js/-/applet.js-0.0.3.tgz#9b218a3c339d3f030142e66645cb68948d68be52"

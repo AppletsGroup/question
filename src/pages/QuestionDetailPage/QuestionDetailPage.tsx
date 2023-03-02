@@ -1,4 +1,5 @@
-import React from 'react'
+import { getPost } from 'applet-apis'
+import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 interface IQuestion {
@@ -7,21 +8,33 @@ interface IQuestion {
   choices: string[]
 }
 
-const initialQuestionState: IQuestion = {
-  id: 1,
-  text: 'What is your favorite color?',
-  choices: ['Red', 'Green', 'Blue', 'Yellow'],
-}
-
 const QuestionDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>()
-  const [question, setQuestion] = React.useState<IQuestion>(initialQuestionState)
+  const [question, setQuestion] = React.useState<IQuestion | null>(null)
 
-  React.useEffect(() => {
-    // TODO: Add code to fetch question with specified ID from server/database
-    // For now, just use the initialQuestionState
-    setQuestion(initialQuestionState)
+  useEffect(() => {
+    const loadPost = async () => {
+      const res = await getPost(Number(id))
+      if (res && res.postBlocks.length > 0) {
+        const questionPostBlock = res.postBlocks[0]
+        const questionText = questionPostBlock.block.content.text
+        const questionChoices = res.postBlocks.slice(1).map((choicePostBlock: any) => {
+          return choicePostBlock.block.content.text
+        })
+        setQuestion({
+          id: res.id,
+          text: questionText,
+          choices: questionChoices
+        })
+      }
+    }
+
+    if (id) {
+      void loadPost()
+    }
   }, [id])
+
+  if (!question) return <></>
 
   return (
     <div>
