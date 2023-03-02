@@ -35,8 +35,6 @@ const QuestionListPage: React.FC = () => {
 
   return (
     <div>
-      <h1>Questions</h1>
-      <Link to="/questions/new">Add Question</Link>
       <ul>
         {questions.map((question) => (
           <li key={question.id}>
