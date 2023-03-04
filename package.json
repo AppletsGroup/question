@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "applet-apis": "^0.0.1",
+    "applet-design": "^0.0.6",
+    "applet-design-utility": "^0.0.3",
     "applet-types": "^0.0.2",
     "applet.js": "^0.0.3",
     "react": "^18.2.0",

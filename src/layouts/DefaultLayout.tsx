@@ -1,3 +1,4 @@
+import { Button } from 'applet-design'
 import { useEffect } from 'react'
 import { Link, Outlet, useNavigate, useSearchParams } from 'react-router-dom'
 
@@ -30,11 +31,10 @@ export default function DefaultLayout() {
           Questions
         </Link>
 
-        <div
-          onClick={handleGotoCreateQuestion}
-          className="cursor-pointer text-stone-500">
+        <Button
+          onClick={handleGotoCreateQuestion}>
           Add Question
-        </div>
+        </Button>
       </div>
       <Outlet />
     </>

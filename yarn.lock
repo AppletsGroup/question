@@ -320,6 +320,18 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.16.17.tgz#c5a1a4bfe1b57f0c3e61b29883525c6da3e5c091"
   integrity sha512-y+EHuSchhL7FjHgvQL/0fnnFmO4T1bhvWANX6gcnqTjtnKWbTvUMCpGnv2+t+31d7RzyEAYAd4u2fnIhHL6N/Q==
 
+"@headlessui/react@^1.7.5":
+  version "1.7.13"
+  resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.13.tgz#fd150b394954e9f1d86ed2340cffd1217d6e7628"
+  integrity sha512-9n+EQKRtD9266xIHXdY5MfiXPDfYwl7zBM7KOx2Ae3Gdgxy8QML1FkCMjq6AsOf0l6N9uvI4HcFtuFlenaldKg==
+  dependencies:
+    client-only "^0.0.1"
+
+"@heroicons/react@^2.0.13":
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/@heroicons/react/-/react-2.0.16.tgz#562883c19ba2690c83380b42a9a5cce39dcbdb4a"
+  integrity sha512-x89rFxH3SRdYaA+JCXwfe+RkE1SFTo9GcOkZettHer71Y3T7V+ogKmfw5CjTazgS3d0ClJ7p1NA+SP7VQLQcLw==
+
 "@jridgewell/gen-mapping@^0.1.0":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.1.1.tgz#e5d2e450306a9491e3bd77e323e38d7aff315996"
@@ -462,6 +474,21 @@ applet-apis@^0.0.1:
   resolved "https://registry.yarnpkg.com/applet-apis/-/applet-apis-0.0.1.tgz#e4465a50e7a040d78c7be71b2e808e3ffe4e1d42"
   integrity sha512-ai64a/OZ9Nur0VsG2Kd2vBSwMXP7ZEMOrVFqfCQ1tqcr/66Y7XBeW6kQjb4c4I/1QTGVevHJPm2yGwaabubPyg==
 
+applet-design-utility@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/applet-design-utility/-/applet-design-utility-0.0.3.tgz#a4b0ff71001891a5f73ccc1cce16f86cb1f4b473"
+  integrity sha512-yRT0XxUbks4GfmijyCxsiGeolWgXw0Ulo1dsSswq+9b9qxPFCsUiriMAdUb/t2G0bRqrtPbZZjBkUmIYcmdQMw==
+
+applet-design@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/applet-design/-/applet-design-0.0.6.tgz#f28f6329fbc02db8378e66f6f20fb68af83701c4"
+  integrity sha512-mf1QBBzyUfgPNNfST8Emk0HFLcKg6cw/ti74NcssN8KSTLeM3PtuL+fSTZ1vOUfA0Q/Zz8rMZrd4QXjVgMLucQ==
+  dependencies:
+    "@headlessui/react" "^1.7.5"
+    "@heroicons/react" "^2.0.13"
+    applet-design-utility "^0.0.3"
+    clsx "^1.2.1"
+
 applet-types@^0.0.2:
   version "0.0.2"
   resolved "https://registry.yarnpkg.com/applet-types/-/applet-types-0.0.2.tgz#0667b95792152cfec23123c14d358fe0c2e3438b"
@@ -546,6 +573,16 @@ chokidar@^3.5.3:
     readdirp "~3.6.0"
   optionalDependencies:
     fsevents "~2.3.2"
+
+client-only@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/client-only/-/client-only-0.0.1.tgz#38bba5d403c41ab150bff64a95c85013cf73bca1"
+  integrity sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==
+
+clsx@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.2.1.tgz#0ddc4a20a549b59c93a4116bb26f5294ca17dc12"
+  integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
 
 color-convert@^1.9.0:
   version "1.9.3"

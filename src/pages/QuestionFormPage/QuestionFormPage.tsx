@@ -1,4 +1,5 @@
 import { createPost } from 'applet-apis'
+import { Button, Input } from 'applet-design'
 import { Post } from 'applet-types'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
@@ -71,33 +72,30 @@ const QuestionFormPage: React.FC = () => {
   }
 
   return (
-    <div>
-      <h1>New Question</h1>
+    <div className="p-10">
+      <h1 className="mb-5 text-2xl">New Question</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="text">Question Text:</label>
-          <input type="text" id="text" name="text" value={question.text} onChange={handleTextChange} />
+          <label htmlFor="text" className="mr-2">Question Text:</label>
+          <Input value={question.text} onChange={handleTextChange} />
         </div>
-        <div>
-          <label htmlFor="choices">Choices:</label>
-          <ul>
+        <div className="mt-5">
+          <label htmlFor="choices" className="text-lg">Choices:</label>
+          <ul className="mt-2">
             {question.choices.map((choice, index) => (
-              <li key={index}>
+              <li key={index} className="mb-5">
                 <label htmlFor={`choice${index}`}>{`Choice ${index + 1}`}</label>
-                <input
-                  type="text"
-                  id={`choice${index}`}
-                  name={`choice${index}`}
+                <Input
                   value={choice}
                   onChange={(event) => handleChoiceChange(index, event)}
                 />
-                <button type="button" onClick={() => handleRemoveChoice(index)}>Remove</button>
+                <Button className="ml-2" onClick={() => handleRemoveChoice(index)}>Remove</Button>
               </li>
             ))}
           </ul>
-          <button type="button" onClick={handleAddChoice}>Add Choice</button>
+          <Button onClick={handleAddChoice}>Add Choice</Button>
         </div>
-        <button type="submit">Submit</button>
+        <Button type="submit" variant='primary' className="mt-10">Submit</Button>
       </form>
     </div>
   )
